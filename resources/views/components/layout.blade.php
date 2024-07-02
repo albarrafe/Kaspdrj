@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
 
-    <title>Document</title>
+    <title>Kas IRKB</title>
 </head>
 
 <body class="h-full">
