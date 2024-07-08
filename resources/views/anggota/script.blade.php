@@ -23,13 +23,11 @@
         simpan('');
     });
 
-
-    // Jquery code
     $(document).ready(function() {
         $('#myTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ url('http://kaspdrj.test/pengeluaranAjax') }}",
+            ajax: "{{ url('http://kaspdrj.test/anggotaAjax') }}",
             columns: [{
                     data: 'DT_RowIndex',
                     name: 'DT_RowIndex',
@@ -38,23 +36,18 @@
                     className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
                 },
                 {
-                    data: 'nominal',
-                    name: 'nominal',
+                    data: 'nama',
+                    name: 'nama',
                     className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
                 },
                 {
-                    data: 'keterangan',
-                    name: 'keterangan',
+                    data: 'no_telp',
+                    name: 'no_telp',
                     className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
                 },
                 {
-                    data: 'tanggal',
-                    name: 'tanggal',
-                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
-                },
-                {
-                    data: 'bukti',
-                    name: 'bukti',
+                    data: 'jabatan',
+                    name: 'jabatan',
                     className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
                 },
                 {
@@ -64,29 +57,27 @@
                 }
             ]
         });
+    });
+    $('body').on('click', '.btnEdit', function(event) {
+        event.preventDefault();
+        var id = $(this).data('id');
+        $.ajax({
+            url: 'http://kaspdrj.test/anggotaAjax/' + id + '/edit',
+            type: 'GET',
+            success: function(response) {
+                // Show modal
+                $('#myModal').removeClass('hidden');
+                // Populate form fields
+                $('#nama').val(response.result.nama);
+                $('#no_telp').val(response.result.no_telp);
+                $('#jabatan').val(response.result.jabatan);
 
-
-        $('body').on('click', '.btnEdit', function(event) {
-            event.preventDefault();
-            var id = $(this).data('id');
-            $.ajax({
-                url: 'http://kaspdrj.test/pengeluaranAjax/' + id + '/edit',
-                type: 'GET',
-                success: function(response) {
-                    // Show modal
-                    $('#myModal').removeClass('hidden');
-                    // Populate form fields
-                    $('#nominal').val(response.result.nominal);
-                    $('#keterangan').val(response.result.keterangan);
-                    $('#tanggal').val(response.result.tanggal);
-                    $('#bukti').val(response.result.bukti);
-                    // tombol simpan update
-                    $('.btnSimpan').off('click').on('click', function(event) {
-                        event.preventDefault();
-                        simpan(id);
-                    });
-                }
-            });
+                // tombol simpan update
+                $('.btnSimpan').off('click').on('click', function(event) {
+                    event.preventDefault();
+                    simpan(id);
+                });
+            }
         });
     });
 
@@ -98,16 +89,15 @@
     });
 
 
+
     function simpan(id) {
         var var_url, var_type;
 
-
         if (id === '') {
-            var_url = 'http://kaspdrj.test/pengeluaranAjax';
+            var_url = 'http://kaspdrj.test/anggotaAjax'; // Rute untuk menyimpan data baru
             var_type = 'POST';
         } else {
-            // If id is provided, we're editing existing data
-            var_url = 'http://kaspdrj.test/pengeluaranAjax/' + id;
+            var_url = 'http://kaspdrj.test/anggotaAjax/' + id; // Rute untuk mengupdate data yang ada
             var_type = 'PUT';
         }
 
@@ -115,17 +105,16 @@
             url: var_url,
             type: var_type,
             data: {
-                _token: '{{ csrf_token() }}',
-                nominal: $('#nominal').val(),
-                keterangan: $('#keterangan').val(),
-                tanggal: $('#tanggal').val(),
-                bukti: $('#bukti').val()
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                nama: $('#nama').val(),
+                no_telp: $('#no_telp').val(),
+                jabatan: $('#jabatan').val(),
             },
             success: function(response) {
                 alert('Data berhasil disimpan!');
-                // Hide modal
+                // Sembunyikan modal setelah sukses
                 $('#myModal').addClass('hidden');
-                // Reload DataTable
+                // Reload DataTable untuk menampilkan data terbaru
                 $('#myTable').DataTable().ajax.reload();
             },
             error: function(response) {
@@ -134,6 +123,7 @@
         });
     }
 </script>
+
 
 <script>
     // Event handler untuk menghapus data
@@ -145,7 +135,7 @@
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
             $.ajax({
-                url: 'http://kaspdrj.test/pengeluaranAjax/' + id,
+                url: 'http://kaspdrj.test/anggotaAjax/' + id,
                 type: 'DELETE',
                 headers: {
                     'X-CSRF-Token': csrfToken

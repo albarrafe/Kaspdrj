@@ -15,8 +15,8 @@
         </div>
 
         <div class="overflow-auto rounded-lg shadow md:block">
-            <table class="w-full">
-                <thead class="bg-gray-50 border-b-2 border-gray-200">
+            <table class="w-full " id="myTable">
+                <thead class="bg-gray-50 border-b-2 border-gray-200 myTable">
                     <tr>
                         <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">No.</th>
                         <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
@@ -25,47 +25,7 @@
                         <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-100">
-                    <tr class="bg-white">
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                            <a href="#" class="font-bold text-blue-500 hover:underline">10001</a>
-                        </td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">Kring New Fit office chair, mesh + PU,
-                            black</td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                            <span
-                                class="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">Delivered</span>
-                        </td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
-                    </tr>
-                    <tr class="bg-gray-50">
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                            <a href="#" class="font-bold text-blue-500 hover:underline">10002</a>
-                        </td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">Kring New Fit office chair, mesh + PU,
-                            black</td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                            <span
-                                class="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">Shipped</span>
-                        </td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
-                    </tr>
-                    <tr class="bg-white">
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                            <a href="#" class="font-bold text-blue-500 hover:underline">10003</a>
-                        </td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">Kring New Fit office chair, mesh + PU,
-                            black</td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                            <span
-                                class="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-200 rounded-lg bg-opacity-50">Cancelled</span>
-                        </td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
-                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
-                    </tr>
-                </tbody>
+
             </table>
         </div>
 
@@ -76,45 +36,31 @@
             <div class="bg-white p-6 shadow-lg w-2/4 border-gray-400">
                 <h2 class="text-xl mb-4 font-medium">Tambah Anggota</h2>
                 <hr class="mb-4 border-gray-900">
-                <form action="#" method="POST">
-                    @csrf
-                    <div class="mb-6">
-                        <label for="name" class="block text-base font-medium text-gray-900 pb-2">Nama
-                            Anggota</label>
-                        <input type="text" name="name" id="name"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
-                    </div>
-                    <div class="mb-6">
-                        <label for="phone" class="block text-base text-gray-900 pb-2">No Telp</label>
-                        <input type="text" name="phone" id="phone"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
-                    </div>
-                    <div class="mb-6">
-                        <label for="position" class="block text-base font-medium text-gray-900 pb-2">Jabatan</label>
-                        <input type="text" name="position" id="position"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
-                    </div>
-                    <div class="flex justify-end">
-                        <button type="submit" class="bg-gray-900 text-white px-4 py-2 rounded">Simpan</button>
-                    </div>
-                </form>
+
+                @csrf
+                <div class="mb-6">
+                    <label for="name" class="block text-base font-medium text-gray-900 pb-2">Nama
+                        Anggota</label>
+                    <input type="text" name="nama" id="nama"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
+                </div>
+                <div class="mb-6">
+                    <label for="phone" class="block text-base text-gray-900 pb-2">No Telp</label>
+                    <input type="text" name="no_telp" id="no_telp"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
+                </div>
+                <div class="mb-6">
+                    <label for="position" class="block text-base font-medium text-gray-900 pb-2">Jabatan</label>
+                    <input type="text" name="jabatan" id="jabatan"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-gray-900 text-white px-4 py-2 rounded btnSimpan">Simpan</button>
+                </div>
+
             </div>
         </div>
 
     </div>
-
-    <script>
-        document.getElementById('openModalBtn').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('myModal').classList.remove('hidden');
-        });
-
-        // Add event listener to close modal when clicking outside
-        document.addEventListener('click', function(event) {
-            var modal = document.getElementById('myModal');
-            if (event.target === modal) {
-                modal.classList.add('hidden');
-            }
-        });
-    </script>
+    @include('anggota.script')
 </x-layout>

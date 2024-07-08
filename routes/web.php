@@ -1,6 +1,8 @@
 <?php
 
+
 use App\Http\Controllers\pengeluaranAjaxController;
+use App\Http\Controllers\anggotaAjaxController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,16 +26,16 @@ Route::get('/pengeluaran', function () {
 });
 
 Route::post('/pengeluaran', [pengeluaranAjaxController::class, 'store'])->name('pengeluaran.store');
-
 Route::resource('pengeluaranAjax', pengeluaranAjaxController::class);
+
+Route::post('anggota', [anggotaAjaxController::class, 'store'])->name('anggota.store');
+Route::resource('anggotaAjax', anggotaAjaxController::class);
 
 Route::get('/report', function () {
     return view('report.report', ['title' => 'Report Kas']);
 });
 
-Route::get('/tambah', function () {
-    return view('tambah.tambah');
-});
+
 
 Route::get('/kasListrik', function () {
     return view('kas.kasListrik', ['title' => 'Pencatatan Kas']);
