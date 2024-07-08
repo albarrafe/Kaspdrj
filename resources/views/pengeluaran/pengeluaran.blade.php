@@ -67,6 +67,6 @@
             </form>
         </div>
     </div>
-    @include('script')
+    @include('pengeluaran.script')
 
 </x-layout>
