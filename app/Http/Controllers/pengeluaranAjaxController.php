@@ -54,7 +54,8 @@ class pengeluaranAjaxController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = pengeluaran::where('id', $id)->first();
+        return response()->json(['result' => $data]);
     }
 
     /**
@@ -62,14 +63,20 @@ class pengeluaranAjaxController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = [
+            'nominal' => $request->nominal,
+            'keterangan' => $request->keterangan,
+            'tanggal' => $request->tanggal,
+            'bukti' => $request->bukti,
+        ];
+        pengeluaran::where('id', $id)->update($data);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        pengeluaran::where('id', $id)->delete();
     }
 }
