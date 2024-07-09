@@ -7,12 +7,10 @@
                         alt="Your Company">
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <div class="ml-10 flex items-baseline space-x-4  id="ajax">
                         <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                         <x-nav-link href="/bayarkas" :active="request()->is('bayarkas')">Bayar kas</x-nav-link>
-                        <x-nav-link href="/pencatatan" :active="request()->is('pencatatan', 'kaslistrik', 'kasagustus')">Pencatatan kas</x-nav-link>
-
+                        <x-nav-link id="pencatatan" href="/pencatatan" :active="request()->is('pencatatan', 'kaslistrik', 'kasagustus')">Pencatatan kas</x-nav-link>
                         <x-nav-link href="/anggota" :active="request()->is('anggota')">Anggota</x-nav-link>
                         <x-nav-link href="/pengeluaran" :active="request()->is('pengeluaran')">Pengeluaran</x-nav-link>
                         <x-nav-link href="/report" :active="request()->is('report')">Report</x-nav-link>
@@ -21,8 +19,6 @@
             </div>
             <div class="hidden md:block">
                 <div class="ml-4 flex items-center md:ml-6">
-
-
                     <!-- Profile dropdown -->
                     <div class="relative ml-3">
                         <div>
@@ -66,10 +62,9 @@
                         stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg :class="{ 'hidden': isOpen, 'block': !isOpen }">
-                    <!-- Menu open: "block", Menu closed: "hidden" -->
-                    <svg class="{ 'block': isOpen, 'hidden': !isOpen }" class="hidden h-6 w-6" fill="none"
-                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    </svg>
+                    <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
@@ -80,17 +75,15 @@
     <!-- Mobile menu, show/hide based on menu state. -->
     <div x-show="isOpen" class="md:hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="/welcome"
+            <a href="/"
                 class="{{ request()->is('/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium"
                 aria-current="page">Home</a>
             <a href="/bayarkas"
-                class="{{ request()->is('/bayarkas') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium"
+                class="{{ request()->is('bayarkas') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium"
                 aria-current="page">Bayar Kas</a>
-            <a href="/pencatatan"
-                class={{ request()->is('/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}
-                block rounded-md px-3 py-2 text-base font-medium">Pencatatan
-                kas</a>
+            <a id="pencatatan-mobile" href="/pencatatan"
+                class="{{ request()->is('pencatatan', 'kaslistrik', 'kasagustus') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium ajax"
+                aria-current="page">Pencatatan kas</a>
             <a href="#"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
             <a href="#"
@@ -109,7 +102,6 @@
                     <div class="text-base font-medium leading-none text-white">Tom Cook</div>
                     <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
                 </div>
-
             </div>
             <div class="mt-3 space-y-1 px-2">
                 <a href="#"

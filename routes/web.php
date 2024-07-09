@@ -5,7 +5,7 @@ use App\Http\Controllers\pengeluaranAjaxController;
 use App\Http\Controllers\anggotaAjaxController;
 use App\Http\Controllers\bayarkasAjaxController;
 use App\Http\Controllers\kaslistrikAjaxController;
-
+use App\Http\Controllers\KasController;
 use App\Http\Controllers\kasagustusAjaxController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +20,8 @@ Route::get('/bayarkas', function () {
 Route::get('/pencatatan', function () {
     return view('kas.pencatatan', ['title' => 'Pencatatan Kas']);
 });
+
+
 
 Route::get('/anggota', function () {
     return view('anggota.anggota', ['title' => 'Anggota']);
@@ -55,3 +57,14 @@ Route::get('/kasagustus', function () {
 });
 Route::post('kasagustus', [kasagustusAjaxController::class, 'store'])->name('kasagustus.store');
 Route::resource('kasagustusAjax', kasagustusAjaxController::class);
+
+
+
+
+Route::get('/pendingkas', function () {
+    return view('kas.pendingkas');
+});
+
+Route::get('/pencatatankas', function () {
+    return view('kas.pencatatankas');
+});
