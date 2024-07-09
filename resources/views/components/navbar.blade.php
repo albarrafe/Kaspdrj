@@ -11,7 +11,8 @@
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                         <x-nav-link href="/bayarkas" :active="request()->is('bayarkas')">Bayar kas</x-nav-link>
-                        <x-nav-link href="/pencatatan" :active="request()->is('pencatatan')">Pencatatan kas</x-nav-link>
+                        <x-nav-link href="/pencatatan" :active="request()->is('pencatatan', 'kaslistrik', 'kasagustus')">Pencatatan kas</x-nav-link>
+
                         <x-nav-link href="/anggota" :active="request()->is('anggota')">Anggota</x-nav-link>
                         <x-nav-link href="/pengeluaran" :active="request()->is('pengeluaran')">Pengeluaran</x-nav-link>
                         <x-nav-link href="/report" :active="request()->is('report')">Report</x-nav-link>

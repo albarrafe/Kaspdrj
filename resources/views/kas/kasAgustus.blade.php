@@ -5,11 +5,11 @@
                 <span class="text-black block rounded-md px-3 py-2 text-base font-medium border border-gray-900">Kas
                     bulanan</span>
             </a>
-            <a href="/kasListrik"class="relative bg-white-900 text-white pt-5 group px-5 ">
+            <a href="/kaslistrik"class="relative bg-white-900 text-white pt-5 group px-5 ">
                 <span class="text-black block rounded-md px-3 py-2 text-base font-medium border border-gray-900">
                     Kas Listrik</span>
             </a>
-            <a href="/kasAgustus"class="relative bg-grey-900 text-white pt-5 group ">
+            <a href="/kasagustus"class="relative bg-grey-900 text-white pt-5 group ">
                 <span class="bg-gray-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
                     Kas Agustusan</span>
             </a>
@@ -37,56 +37,18 @@
 
 
         <div class="overflow-auto rounded-lg shadow hidden md:block">
-            <table class="w-full">
+            <table class="w-full" id="myTable">
                 <thead class="bg-gray-50 border-b-2 border-gray-200">
                     <tr>
                         <th class="w-16 p-3 text-sm font-semibold tracking-wide text-left">No.</th>
                         <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
                         <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Tanggal</th>
                         <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">Jumlah</th>
+                        <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">Bukti</th>
                         <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-100">
-                    <tr class="bg-white">
-                        <td class="p-4 text-sm text-gray-700 whitespace-nowrap">
-                            <a href="#" class="font-bold text-blue-500 hover:underline">1</a>
-                        </td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">
-                            Bau Alvaro
-                        </td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">
-                            <span
-                                class="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">Delivered</span>
-                        </td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
-                    </tr>
-                    <tr class="bg-gray-50">
-                        <td class="p-4 text-sm text-gray-700 whitespace-nowrap">
-                            <a href="#" class="font-bold text-blue-500 hover:underline">2</a>
-                        </td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap"> Ari</td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">
-                            <span
-                                class="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">Shipped</span>
-                        </td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
-                    </tr>
-                    <tr class="bg-white">
-                        <td class="p-4 text-sm text-gray-700 whitespace-nowrap">
-                            <a href="#" class="font-bold text-blue-500 hover:underline">3</a>
-                        </td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">Seni</td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">
-                            <span
-                                class="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-200 rounded-lg bg-opacity-50">Cancelled</span>
-                        </td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
-                        <td class="p-2 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
-                    </tr>
-                </tbody>
+
             </table>
         </div>
 
@@ -101,27 +63,27 @@
             <form action="#" method="POST">
                 @csrf
                 <div class="mb-6">
-                    <label for="name" class="block text-base font-medium text-gray-900 pb-2">Nama Angota</label>
-                    <input type="text" name="name" id="name"
+                    <label for="name" class="block text-base font-medium text-gray-900 pb-2">Nama Pengurus</label>
+                    <input type="text" name="nama" id="nama"
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
                 </div>
                 <div class="mb-6">
                     <label for="phone" class="block text-base text-gray-900 pb-2">Tanggal</label>
-                    <input type="text" name="phone" id="phone"
+                    <input type="text" name="tanggal" id="tanggal"
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
                 </div>
                 <div class="mb-6">
                     <label for="position" class="block text-base font-medium text-gray-900 pb-2">Jumlah</label>
-                    <input type="text" name="position" id="position"
+                    <input type="text" name="jumlah" id="jumlah"
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
                 </div>
                 <div class="mb-6">
                     <label for="bukti" class="block text-base font-medium text-gray-900 pb-2">Bukti</label>
-                    <input type="text" name="position" id="position"
+                    <input type="text" name="bukti" id="bukti"
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
                 </div>
                 <div class="flex justify-end">
-                    <button type="submit" class="bg-gray-900 text-white px-4 py-2 rounded">Simpan</button>
+                    <button type="submit" class="bg-gray-900 text-white px-4 py-2 rounded btnSimpan">Simpan</button>
                 </div>
             </form>
         </div>
@@ -129,19 +91,6 @@
 
     </div>
 
-    <script>
-        document.getElementById('openModalBtn').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('myModal').classList.remove('hidden');
-        });
-
-        // Add event listener to close modal when clicking outside
-        document.addEventListener('click', function(event) {
-            var modal = document.getElementById('myModal');
-            if (event.target === modal) {
-                modal.classList.add('hidden');
-            }
-        });
-    </script>
+    @include('kas.script.scriptagustus')
 
 </x-layout>

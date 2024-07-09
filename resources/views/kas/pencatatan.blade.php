@@ -5,11 +5,11 @@
                 <span class="bg-gray-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Kas
                     bulanan</span>
             </a>
-            <a href="/kasListrik"class="relative bg-white-900 text-white pt-5 group px-5 ">
+            <a href="/kaslistrik"class="relative bg-white-900 text-white pt-5 group px-5 ">
                 <span class="text-black block rounded-md px-3 py-2 text-base font-medium border border-gray-900">
                     Kas Listrik</span>
             </a>
-            <a href="/kasAgustus"class="relative bg-grey-900 text-white pt-5 group ">
+            <a href="/kasagustus"class="relative bg-grey-900 text-white pt-5 group ">
                 <span class="text-black block rounded-md px-3 py-2 text-base font-medium border border-gray-900">
                     Kas Agustusan</span>
             </a>
