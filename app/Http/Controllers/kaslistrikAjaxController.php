@@ -15,7 +15,7 @@ class kaslistrikAjaxController extends Controller
     {
         $data = kaslistrik::query();
         return DataTables::of($data)->addIndexColumn()->addColumn('aksi', function ($data) {
-            return view('kas.tombol')->with('data', $data);
+            return view('tombol.tombol')->with('data', $data);
         })->make(true);
     }
 

@@ -15,7 +15,7 @@ class anggotaAjaxController extends Controller
     {
         $data = anggota::orderBy('nama', 'asc');
         return DataTables::of($data)->addIndexColumn()->addColumn('aksi', function ($data) {
-            return view('anggota.tombol')->with('data', $data);
+            return view('tombol.tombol')->with('data', $data);
         })->make(true);
     }
 

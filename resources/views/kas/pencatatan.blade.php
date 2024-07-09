@@ -23,13 +23,19 @@
         <div class=" flex items-center justify-left pb-5">
             <a href="#"
                 class="relative bg-gray-900 text-white px-3 py-2 rounded-md group flex items-center space-x-2 ">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
+
 
                 <span id="openModalBtn" class="text-base font-medium hover:text-gray-200">
-                    Tambah Pencatatan Kas
+                    Pencatatan Kas
+                </span>
+
+            </a>
+            <a href="#"
+                class="relative border  border-gray-900 ml-2 text-white px-3 py-2 rounded-md group flex items-center space-x-2 ">
+
+
+                <span id="openModalBtn" class="text-base text-black font-medium ">
+                    Pending kas
                 </span>
 
             </a>

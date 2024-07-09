@@ -1,0 +1,114 @@
+#dt-search-0 {
+    border: 1px solid #ccc;
+    padding: 4px;
+    margin-right: 20px;
+    margin-top: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 200px;
+}
+
+#dt-length-0{
+    border: 1px solid #ccc;
+    padding: 4px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 50px;
+    margin-left: 20px;
+    margin-top: 8px;
+    
+}
+
+label[for="dt-length-0"] {
+    display: none;
+}
+
+.dt-layout-table {
+    border-radius: 100px;
+    display: none;
+    
+}
+
+
+
+
+
+#myTable_info{
+    margin-left: 20px;
+}
+
+.dataTable {
+    border-radius: 10px; /* Atur radius sudut sesuai keinginan */
+    overflow: hidden; /* Pastikan konten di dalam table tidak keluar dari radius */
+    padding: 10px;
+}
+
+#myTable tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* Ganti dengan warna yang Anda inginkan */
+    
+}
+
+/* Styling baris genap */
+#myTable tbody tr:nth-child(even) {
+    background-color: #f9fafb; /* Ganti dengan warna yang Anda inginkan */
+}
+
+.table-rows {
+    padding: 10px; /* Sesuaikan dengan ukuran padding yang Anda inginkan */
+}
+
+div#myTable_wrapper {
+    box-shadow: none !important;
+}
+
+
+.shadow {
+    --tw-shadow: none; /* Mengatur variabel --tw-shadow menjadi none */
+    --tw-shadow-colored: none; /* Mengatur variabel --tw-shadow-colored menjadi none */
+    box-shadow: none; /* Menghilangkan semua bayangan pada elemen dengan class .shadow */
+}
+
+.table-container {
+    overflow: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+#myTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#myTable thead {
+    background-color: #f9fafb; /* Warna latar belakang header */
+    
+}
+
+#myTable th {
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.875rem; /* Ukuran teks */
+    font-weight: 600; /* Ketebalan teks */
+    color: #2d3748; /* Warna teks */
+}
+
+#myTable td {
+    padding: 1rem;
+    font-size: 0.875rem; /* Ukuran teks */
+    color: #4a5568; /* Warna teks */
+  
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next {
+    background-color: #1a202c; /* Warna background yang Anda inginkan */
+    color: #1a202c; /* Warna teks yang kontras dengan background */
+}
+
+
+
+
+
+
+
+

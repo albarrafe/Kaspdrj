@@ -15,7 +15,7 @@ class pengeluaranAjaxController extends Controller
     {
         $data = pengeluaran::orderBy('nominal', 'asc');
         return DataTables::of($data)->addIndexColumn()->addColumn('aksi', function ($data) {
-            return view('pengeluaran.tombol')->with('data', $data);
+            return view('tombol.tombol')->with('data', $data);
         })->make(true);
     }
 

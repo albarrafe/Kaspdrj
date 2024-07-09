@@ -37,8 +37,8 @@
 
 
         <div class="overflow-auto rounded-lg shadow hidden md:block">
-            <table class="w-full" id="myTable">
-                <thead class="bg-gray-50 border-b-2 border-gray-200">
+            <table class="w-full " id="myTable">
+                <thead class="bg-gray-50 border-b-2 border-gray-200 ">
                     <tr>
                         <th class="w-16 p-3 text-sm font-semibold tracking-wide text-left">No.</th>
                         <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
