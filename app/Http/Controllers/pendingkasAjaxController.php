@@ -26,7 +26,7 @@ class pendingkasAjaxController extends Controller
         //
     }
 
-    // App\Http\Controllers\YourController.php
+
 
     public function store(Request $request)
     {
@@ -39,7 +39,7 @@ class pendingkasAjaxController extends Controller
 
         pendingkas::create($data);
 
-        // Jika perlu, kembalikan respons atau pesan sukses
+
         return response()->json(['message' => 'Data berhasil disimpan'], 201);
     }
 

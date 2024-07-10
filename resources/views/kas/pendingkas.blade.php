@@ -130,11 +130,11 @@
                 },
                 success: function(response) {
                     alert('Data berhasil diverifikasi')
-                    // Handle success response if needed
+
                 },
                 error: function(xhr) {
                     console.error(xhr.responseText);
-                    // Handle error response if needed
+
                 }
             });
         });
