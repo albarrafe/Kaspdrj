@@ -63,8 +63,6 @@
                 }
             });
         }
-
-        // Check if the current URL is /pencatatan and trigger the AJAX call
         if (window.location.pathname === '/pencatatan') {
             loadPencatatan();
         }

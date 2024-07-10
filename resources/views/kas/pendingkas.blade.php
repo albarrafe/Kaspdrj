@@ -19,41 +19,124 @@
 </div>
 
 <div id="" class="overflow-auto rounded-lg shadow hidden md:block">
-    <table class="w-full">
+    <table class="w-full" id="myTable">
         <thead class="bg-gray-50 border-b-2 border-gray-200">
             <tr>
                 <th class="w-16 p-3 text-sm font-semibold tracking-wide text-left">No.</th>
                 <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
                 <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Tanggal</th>
                 <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">Jumlah</th>
+                <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">Bukti</th>
                 <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
             </tr>
         </thead>
-        <tbody class="divide-y divide-gray-100">
-            {{-- Di sini Anda dapat menambahkan data dari database atau yang lainnya --}}
-            <tr class="bg-white">
-                <td class="p-4 text-sm text-gray-700 whitespace-nowrap">1</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">Contoh Nama</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">16/07/2024</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">
-                    <a href="#" class="text-blue-500 hover:underline">Edit</a> |
-                    <a href="#" class="text-red-500 hover:underline">Hapus</a>
-                </td>
-            </tr>
-            {{-- Contoh data lainnya --}}
-            <tr class="bg-gray-50">
-                <td class="p-4 text-sm text-gray-700 whitespace-nowrap">2</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">Contoh Nama 2</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">17/07/2024</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">$300.00</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">
-                    <a href="#" class="text-blue-500 hover:underline">Edit</a> |
-                    <a href="#" class="text-red-500 hover:underline">Hapus</a>
-                </td>
-            </tr>
-        </tbody>
+
     </table>
 </div>
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+
+<script>
+    document.getElementById('openModalBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('myModal').classList.remove('hidden');
+    });
+
+    // Add event listener to close modal when clicking outside
+    document.addEventListener('click', function(event) {
+        var modal = document.getElementById('myModal');
+        if (event.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+</script>
+
+
+
+
 @include('kas.script.scriptpencatatan')
+
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ url('http://kaspdrj.test/bayarkasAjax') }}",
+            columns: [{
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex',
+                    orderable: false,
+                    searchable: false,
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                },
+                {
+                    data: 'nama',
+                    name: 'nama',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                },
+                {
+                    data: 'tanggal',
+                    name: 'tanggal',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                },
+                {
+                    data: 'jumlah',
+                    name: 'jumlah',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                },
+                {
+                    data: 'bukti',
+                    name: 'bukti',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                },
+                {
+                    data: 'aksi',
+                    name: 'aksi',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                }
+            ]
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '.btnPost', function(event) {
+            event.preventDefault();
+
+            var id = $(this).data('id');
+            var nama = $(this).data('nama');
+            var tanggal = $(this).data('tanggal');
+            var jumlah = $(this).data('jumlah');
+            var bukti = $(this).data('bukti');
+
+            var postData = {
+                id: id,
+                nama: nama,
+                tanggal: tanggal,
+                jumlah: jumlah,
+                bukti: bukti
+            };
+
+            $.ajax({
+                url: '/pendingkasAjax',
+                type: 'POST',
+                data: postData,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    alert('Data berhasil diverifikasi')
+                    // Handle success response if needed
+                },
+                error: function(xhr) {
+                    console.error(xhr.responseText);
+                    // Handle error response if needed
+                }
+            });
+        });
+    });
+</script>

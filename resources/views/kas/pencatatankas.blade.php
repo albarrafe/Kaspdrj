@@ -15,7 +15,7 @@
 
 </div>
 <div class="overflow-auto rounded-lg shadow hidden md:block">
-    <table class="w-full">
+    <table class="w-full" id="myTable">
         <thead class="bg-gray-50 border-b-2 border-gray-200">
             <tr>
                 <th class="w-16 p-3 text-sm font-semibold tracking-wide text-left">No.</th>
@@ -25,46 +25,50 @@
                 <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
             </tr>
         </thead>
-        <tbody class="divide-y divide-gray-100">
-            <tr class="bg-white">
-                <td class="p-4 text-sm text-gray-700 whitespace-nowrap">
-                    <a href="#" class="font-bold text-blue-500 hover:underline">1</a>
-                </td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">
-                    Bau Alvaro
-                </td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">
-                    <span
-                        class="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">Delivered</span>
-                </td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
-            </tr>
-            <tr class="bg-gray-50">
-                <td class="p-4 text-sm text-gray-700 whitespace-nowrap">
-                    <a href="#" class="font-bold text-blue-500 hover:underline">2</a>
-                </td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap"> Ari</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">
-                    <span
-                        class="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">Shipped</span>
-                </td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
-            </tr>
-            <tr class="bg-white">
-                <td class="p-4 text-sm text-gray-700 whitespace-nowrap">
-                    <a href="#" class="font-bold text-blue-500 hover:underline">3</a>
-                </td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">Seni</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">
-                    <span
-                        class="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-200 rounded-lg bg-opacity-50">Cancelled</span>
-                </td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">16/10/2021</td>
-                <td class="p-2 text-sm text-gray-700 whitespace-nowrap">$200.00</td>
-            </tr>
-        </tbody>
+
     </table>
 </div>
 @include('kas.script.scriptpencatatan')
+
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ url('http://kaspdrj.test/pendingkasAjax') }}",
+            columns: [{
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex',
+                    orderable: false,
+                    searchable: false,
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                },
+                {
+                    data: 'nama',
+                    name: 'nama',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                },
+                {
+                    data: 'tanggal',
+                    name: 'tanggal',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                },
+                {
+                    data: 'jumlah',
+                    name: 'jumlah',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                },
+                {
+                    data: 'bukti',
+                    name: 'bukti',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                },
+                {
+                    data: 'aksi',
+                    name: 'aksi',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                }
+            ]
+        });
+    });
+</script>

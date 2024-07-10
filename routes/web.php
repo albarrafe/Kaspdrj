@@ -7,6 +7,7 @@ use App\Http\Controllers\bayarkasAjaxController;
 use App\Http\Controllers\kaslistrikAjaxController;
 use App\Http\Controllers\KasController;
 use App\Http\Controllers\kasagustusAjaxController;
+use App\Http\Controllers\pendingkasAjaxController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -64,6 +65,9 @@ Route::resource('kasagustusAjax', kasagustusAjaxController::class);
 Route::get('/pendingkas', function () {
     return view('kas.pendingkas');
 });
+Route::post('pendingkas', [pendingkasAjaxController::class, 'store'])->name('pendingkas.store');
+Route::resource('pendingkasAjax', pendingkasAjaxController::class);
+
 
 Route::get('/pencatatankas', function () {
     return view('kas.pencatatankas');

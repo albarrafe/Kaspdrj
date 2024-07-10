@@ -2,34 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\bayarkas;
+
+use App\Models\pendingkas;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Log;
 
-class bayarkasAjaxController extends Controller
+class pendingkasAjaxController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $data = bayarkas::query();
+
+
+        $data = pendingkas::query();
         return DataTables::of($data)->addIndexColumn()->addColumn('aksi', function ($data) {
             return view('kas.tombol')->with('data', $data);
         })->make(true);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // App\Http\Controllers\YourController.php
+
     public function store(Request $request)
     {
         $data = [
@@ -38,36 +36,29 @@ class bayarkasAjaxController extends Controller
             'jumlah' => $request->jumlah,
             'bukti' => $request->bukti,
         ];
-        bayarkas::create($data);
+
+        pendingkas::create($data);
+
+        // Jika perlu, kembalikan respons atau pesan sukses
+        return response()->json(['message' => 'Data berhasil disimpan'], 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         //
