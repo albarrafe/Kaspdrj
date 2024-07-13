@@ -57,7 +57,7 @@
             type: var_type,
             data: {
                 _token: '{{ csrf_token() }}',
-                nama: $('#nama').val(),
+                nama: $('#nama option:selected').text(), // Mengambil teks opsi yang dipilih
                 tanggal: $('#tanggal').val(),
                 jumlah: $('#jumlah').val(),
                 bukti: $('#bukti').val()

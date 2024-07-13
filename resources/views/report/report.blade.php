@@ -10,12 +10,11 @@
                 <thead class="bg-gray-50 border-b-2 border-gray-200">
                     <tr>
                         <th class="w-10 p-1 text-sm font-semibold tracking-wide text-left">No.</th>
-                        <th class="w-20 p-1 text-sm font-semibold tracking-wide text-left" name="nominal">Nominal</th>
-                        <th class="w-24 p-1 text-sm font-semibold tracking-wide text-left" name="keterangan">Keterangan
-                        </th>
+                        <th class="w-20 p-1 text-sm font-semibold tracking-wide text-left" name="jumlah">Nominal</th>
                         <th class="w-24 p-1 text-sm font-semibold tracking-wide text-left" name="tanggal">Tanggal</th>
-                        <th class="w-20 p-1 text-sm font-semibold tracking-wide text-left" name="bukti">Bukti</th>
-                        <th class="w-24 p-1 text-sm font-semibold tracking-wide text-left" name="aksi">Aksi</th>
+                        <th class="w-24 p-1 text-sm font-semibold tracking-wide text-left" name="jenis">Jenis</th>
+                        <th class="w-20 p-1 text-sm font-semibold tracking-wide text-left" name="keterangan">Keterangan
+                        </th>
                     </tr>
                 </thead>
                 <tbody>

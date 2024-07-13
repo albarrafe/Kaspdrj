@@ -36,7 +36,7 @@
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
                 </div>
                 <div class="flex justify-end">
-                    <button type="submit" class="bg-gray-900 text-white px-4 py-2 rounded">Simpan</button>
+                    <button type="submit" class="bg-gray-900 text-white px-4 py-2 rounded btnSimpan">Simpan</button>
                 </div>
             </form>
         </div>

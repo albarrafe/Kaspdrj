@@ -8,6 +8,7 @@ use App\Http\Controllers\kaslistrikAjaxController;
 use App\Http\Controllers\KasController;
 use App\Http\Controllers\kasagustusAjaxController;
 use App\Http\Controllers\pendingkasAjaxController;
+use App\Http\Controllers\ReportAjaxController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -77,3 +78,10 @@ Route::get('/pencatatankas', function () {
 });
 
 Route::get('/anggota/data', [AnggotaAjaxController::class, 'getData'])->name('anggota.data');
+
+
+Route::resource('reportAjax', reportAjaxController::class);
+
+Route::get('/login', function () {
+    return view('login.login');
+});

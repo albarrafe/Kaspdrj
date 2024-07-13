@@ -43,8 +43,8 @@
                         <th class="w-16 p-3 text-sm font-semibold tracking-wide text-left">No.</th>
                         <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
                         <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Tanggal</th>
-                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Bukti</th>
-                        <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">Jumlah</th>
+                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Jumlah</th>
+                        <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">Bukti</th>
                         <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
                     </tr>
                 </thead>
