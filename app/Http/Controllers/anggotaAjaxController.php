@@ -17,6 +17,9 @@ class anggotaAjaxController extends Controller
         return DataTables::of($data)->addIndexColumn()->addColumn('aksi', function ($data) {
             return view('tombol.tombol')->with('data', $data);
         })->make(true);
+
+        $anggota = anggota::all();
+        return response()->json($anggota);
     }
 
     /**
@@ -78,5 +81,11 @@ class anggotaAjaxController extends Controller
     public function destroy(string $id)
     {
         anggota::where('id', $id)->delete();
+    }
+
+    public function getData()
+    {
+        $anggota = Anggota::all();
+        return response()->json($anggota);
     }
 }

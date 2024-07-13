@@ -1,12 +1,13 @@
 <div class=" flex items-center justify-left pb-5">
-    <a href="#" class="relative bg-gray-900 text-white px-3 py-2 rounded-md group flex items-center space-x-2 ">
-        <span id="pencatatankas" class="text-base font-medium hover:text-gray-200">
+    <a href="#" id="pencatatankas"
+        class="relative bg-gray-900 text-white px-3 py-2 rounded-md group flex items-center space-x-2 ">
+        <span class="text-base font-medium hover:text-gray-200">
             Pencatatan Kas
         </span>
     </a>
-    <a href="#"
+    <a href="#" id="pendingkas"
         class="relative border  border-gray-900 ml-2 text-white px-3 py-2 rounded-md group flex items-center space-x-2 ">
-        <span id="pendingkas" class="text-base text-black font-medium menupendingkas">
+        <span class="text-base text-black font-medium menupendingkas">
             Pending kas
         </span>
 
@@ -22,6 +23,7 @@
                 <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
                 <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">Tanggal</th>
                 <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">Jumlah</th>
+                <th class="w-20 p-3 text-sm font-semibold tracking-wide text-left">Bukti</th>
                 <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
             </tr>
         </thead>

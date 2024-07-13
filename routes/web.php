@@ -35,6 +35,9 @@ Route::get('/pengeluaran', function () {
 Route::post('/pengeluaran', [pengeluaranAjaxController::class, 'store'])->name('pengeluaran.store');
 Route::resource('pengeluaranAjax', pengeluaranAjaxController::class);
 
+// definisi manual edit
+// Route::get('pengeluaranAjax/{id}/edit', [pengeluaranAjaxController::class, 'edit']);
+
 Route::post('anggota', [anggotaAjaxController::class, 'store'])->name('anggota.store');
 Route::resource('anggotaAjax', anggotaAjaxController::class);
 
@@ -72,3 +75,5 @@ Route::resource('pendingkasAjax', pendingkasAjaxController::class);
 Route::get('/pencatatankas', function () {
     return view('kas.pencatatankas');
 });
+
+Route::get('/anggota/data', [AnggotaAjaxController::class, 'getData'])->name('anggota.data');

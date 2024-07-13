@@ -12,8 +12,6 @@ class pendingkasAjaxController extends Controller
 {
     public function index()
     {
-
-
         $data = pendingkas::query();
         return DataTables::of($data)->addIndexColumn()->addColumn('aksi', function ($data) {
             return view('kas.tombol')->with('data', $data);
