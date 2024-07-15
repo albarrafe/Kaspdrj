@@ -27,9 +27,6 @@
     });
 
 
-
-
-
     $('.btnSimpan').on('click', function(event) {
         event.preventDefault();
         simpan('');
@@ -43,14 +40,8 @@
 
     function simpan(id) {
         var var_url, var_type;
-
-        if (id === '') {
-            var_url = 'http://kaspdrj.test/bayarkasAjax';
-            var_type = 'POST';
-        } else {
-            var_url = 'http://kaspdrj.test/bayarkasAjax/' + id;
-            var_type = 'PUT';
-        }
+        var_url = 'http://kaspdrj.test/bayarkasAjax';
+        var_type = 'POST';
 
         $.ajax({
             url: var_url,

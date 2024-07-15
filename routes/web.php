@@ -10,10 +10,13 @@ use App\Http\Controllers\kasagustusAjaxController;
 use App\Http\Controllers\pendingkasAjaxController;
 use App\Http\Controllers\ReportAjaxController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\welcomeController;
 
-Route::get('/', function () {
-    return view('welcome', ['title' => 'Home']);
-});
+Route::get('/', [WelcomeController::class, 'index'])->name('dashboard');
+
+// Route untuk halaman welcome dengan view biasa
+
+
 
 Route::get('/bayarkas', function () {
     return view('bayarkas.bayarkas', ['title' => 'Bayar Kas']);

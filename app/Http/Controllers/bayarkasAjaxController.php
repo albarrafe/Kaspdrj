@@ -70,6 +70,6 @@ class bayarkasAjaxController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        bayarkas::where('id', $id)->delete();
     }
 }

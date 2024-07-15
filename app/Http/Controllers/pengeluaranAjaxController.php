@@ -13,7 +13,7 @@ class pengeluaranAjaxController extends Controller
      */
     public function index()
     {
-        $data = pengeluaran::orderBy('nominal', 'asc');
+        $data = pengeluaran::orderBy('jumlah', 'asc');
         return DataTables::of($data)->addIndexColumn()->addColumn('aksi', function ($data) {
             return view('tombol.tombol')->with('data', $data);
         })->make(true);
@@ -33,7 +33,7 @@ class pengeluaranAjaxController extends Controller
     public function store(Request $request)
     {
         $data = [
-            'nominal' => $request->nominal,
+            'jumlah' => $request->jumlah,
             'keterangan' => $request->keterangan,
             'tanggal' => $request->tanggal,
             'bukti' => $request->bukti,

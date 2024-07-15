@@ -16,17 +16,17 @@
                     name: 'DT_RowIndex',
                     orderable: false,
                     searchable: false,
-                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+
                 },
                 {
                     data: 'jumlah',
                     name: 'jumlah',
-                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+
                 },
                 {
                     data: 'tanggal',
                     name: 'tanggal',
-                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+
                 },
                 {
                     data: 'jenis',

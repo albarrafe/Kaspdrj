@@ -21,8 +21,7 @@
     <div class="px-10 py-5 bg-white" id="coba">
 
         <div class=" flex items-center justify-left pb-5">
-            <a href="#"
-                class="relative bg-gray-900 text-white px-3 py-2 rounded-md group flex items-center space-x-2 ">
+            <a href="#" class="relative  text-white px-3 py-2 rounded-md group flex items-center space-x-2 ">
 
 
                 <span id="pencatatankas" class="text-base font-medium hover:text-gray-200">
@@ -46,8 +45,14 @@
 
 
 
-    @include('kas.script.scriptpencatatan')
+
 </x-layout>
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+
+
 <script>
     $(document).ready(function() {
         // Function to handle the AJAX request

@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\pendingkas;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\Log;
+
 
 class pendingkasAjaxController extends Controller
 {
@@ -14,7 +14,7 @@ class pendingkasAjaxController extends Controller
     {
         $data = pendingkas::query();
         return DataTables::of($data)->addIndexColumn()->addColumn('aksi', function ($data) {
-            return view('kas.tombol')->with('data', $data);
+            return view('kas.tombol2')->with('data', $data);
         })->make(true);
     }
 
@@ -36,9 +36,6 @@ class pendingkasAjaxController extends Controller
         ];
 
         pendingkas::create($data);
-
-
-        return response()->json(['message' => 'Data berhasil disimpan'], 201);
     }
 
 
@@ -59,6 +56,6 @@ class pendingkasAjaxController extends Controller
 
     public function destroy(string $id)
     {
-        //
+        pendingkas::where('id', $id)->delete();
     }
 }

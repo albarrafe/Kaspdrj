@@ -9,5 +9,5 @@ class pengeluaran extends Model
 {
     use HasFactory;
     public $table = "pengeluaran";
-    protected $fillable = ['nominal', 'keterangan', 'tanggal', 'bukti'];
+    protected $fillable = ['jumlah', 'keterangan', 'tanggal', 'bukti'];
 }

@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Rows will be dynamically added here by DataTables -->
+
                 </tbody>
             </table>
         </div>
@@ -43,7 +43,7 @@
                 @csrf
                 <div class="mb-6">
                     <label for="nominal" class="block text-base font-medium text-gray-900 pb-2">Nominal</label>
-                    <input type="text" name="nominal" id="nominal"
+                    <input type="text" name="jumlah" id="jumlah"
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-lg px-3 py-2">
                 </div>
                 <div class="mb-6">

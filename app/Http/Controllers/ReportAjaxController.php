@@ -31,7 +31,7 @@ class reportAjaxController extends Controller
         //     return $item;
         // });
 
-        $dataPengeluaran = Pengeluaran::select('nominal as jumlah', 'tanggal', 'keterangan')
+        $dataPengeluaran = Pengeluaran::select('jumlah', 'tanggal', 'keterangan')
             ->get()
             ->map(function ($item) {
                 $item->jenis = 'Pengeluaran';

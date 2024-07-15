@@ -3,28 +3,9 @@
     crossorigin="anonymous"></script>
 
 <script src="//cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 
 <script>
-    $('#openModalBtn').on('click', function(event) {
-        event.preventDefault();
-        $('#myModal').removeClass('hidden');
-    });
-
-
-    $(document).on('click', function(event) {
-        var modal = $('#myModal');
-        if (event.target === modal[0]) {
-            modal.addClass('hidden');
-        }
-    });
-
-    $('.btnSimpan').on('click', function(event) {
-        event.preventDefault();
-        simpan('');
-    });
-
-
-    // Jquery code
     $(document).ready(function() {
         $('#myTable').DataTable({
             processing: true,
@@ -38,9 +19,14 @@
                     className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
                 },
                 {
-                    data: 'nominal',
-                    name: 'nominal',
-                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                    data: 'jumlah',
+                    name: 'jumlah',
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap',
+                    render: function(data, type, row) {
+                        // Format data 'jumlah' sebagai nominal Rupiah menggunakan numeral.js
+                        return 'Rp ' + numeral(data).format('0,0').replace(',',
+                            '.'); // Mengganti , dengan .
+                    }
                 },
                 {
                     data: 'keterangan',
@@ -65,6 +51,28 @@
             ]
         });
 
+        $('#openModalBtn').on('click', function(event) {
+            event.preventDefault();
+            $('#myModal').removeClass('hidden');
+        });
+
+
+        $(document).on('click', function(event) {
+            var modal = $('#myModal');
+            if (event.target === modal[0]) {
+                modal.addClass('hidden');
+            }
+        });
+
+        $('.btnSimpan').on('click', function(event) {
+            event.preventDefault();
+            simpan('');
+        });
+
+
+        // Jquery code
+
+
 
         $('body').on('click', '.btnEdit', function(event) {
             event.preventDefault();
@@ -76,7 +84,7 @@
                     // Show modal
                     $('#myModal').removeClass('hidden');
                     // Populate form fields
-                    $('#nominal').val(response.result.nominal);
+                    $('#jumlah').val(response.result.jumlah);
                     $('#keterangan').val(response.result.keterangan);
                     $('#tanggal').val(response.result.tanggal);
                     $('#bukti').val(response.result.bukti);
@@ -116,7 +124,7 @@
             type: var_type,
             data: {
                 _token: '{{ csrf_token() }}',
-                nominal: $('#nominal').val(),
+                jumlah: $('#jumlah').val(),
                 keterangan: $('#keterangan').val(),
                 tanggal: $('#tanggal').val(),
                 bukti: $('#bukti').val()

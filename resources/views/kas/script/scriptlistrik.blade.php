@@ -3,6 +3,7 @@
     crossorigin="anonymous"></script>
 
 <script src="//cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 
 <script>
     $('#openModalBtn').on('click', function(event) {
@@ -50,7 +51,12 @@
                 {
                     data: 'jumlah',
                     name: 'jumlah',
-                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap'
+                    className: 'p-1 text-sm text-gray-700 whitespace-nowrap',
+                    render: function(data, type, row) {
+                        // Format data 'jumlah' sebagai nominal Rupiah menggunakan numeral.js
+                        return 'Rp ' + numeral(data).format('0,0').replace(',',
+                            '.'); // Mengganti , dengan .
+                    }
                 },
                 {
                     data: 'bukti',
